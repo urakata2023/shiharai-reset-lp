@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>【支払いリセット計画】競馬、リボ、見栄。借金の理由は聞きません｜無料の支払い見直し診断</title>
+<meta name="description" content="家賃・ローン・カードの支払いに追われる毎日から抜け出すために。住まいと資金計画の専門家が、今の支払い状況を分析し、月々の改善の可能性を無料で診断します。完全予約制・相談無料・秘密厳守・オンライン対応。" />
+<meta name="theme-color" content="#0F3D38" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/favicon.png" />
+
+<!-- OGP（広告運用用：本番では実画像URLに差し替え） -->
+<meta property="og:title" content="【支払いリセット計画】借金の理由は、聞きません。" />
+<meta property="og:description" content="住まいと家計を見直して、毎月の支払いから解放される。無料診断はこちら。" />
+<meta property="og:type" content="website" />
+<!-- 本番では絶対URLに差し替え（例: https://example.com/assets/ogp.jpg） -->
+<meta property="og:image" content="assets/ogp.jpg" />
+
+<!--
+  日本語フォント：本番（広告運用）では表示速度のためセルフホスト推奨。
+  ここでは即プレビューできるようGoogle Fontsを使用。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet" />
+
+<!-- ============================================================
+     計測タグ（本番運用前に XXXX のIDを実IDへ差し替え）
+     ・GA4測定ID:        G-XXXXXXXXXX
+     ・Google広告ID:     AW-XXXXXXXXXX
+     ・Google広告CVラベル: AW-XXXXXXXXXX/xxxxxxxxxxxxxxx （JS側のfireConversionsにも記載）
+     ・Meta PixelID:     XXXXXXXXXXXXXXX
+     ============================================================ -->
+<!-- Google tag (gtag.js) : GA4 + Google広告 共通 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');   // GA4 測定ID
+  gtag('config', 'AW-XXXXXXXXXX');  // Google広告 コンバージョンID
+</script>
+<!-- Meta Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'XXXXXXXXXXXXXXX');   // Meta Pixel ID
+  fbq('track', 'PageView');
+</script>
+
+<!-- Tailwind Play CDN（プロトタイプ/即運用用。配信最適化する場合はビルド版に切替） -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans JP"', 'system-ui', 'sans-serif'],
+          display: ['"Zen Kaku Gothic New"', '"Noto Sans JP"', 'sans-serif'],
+        },
+        colors: {
+          // 安心・再生のエバーグリーン（ブランド基調）
+          forest: {
+            50:  '#EEF5F2',
+            100: '#D7E8E1',
+            700: '#1C6B5F',
+            800: '#114B43',
+            900: '#0F3D38',
+            950: '#0A2C28',
+          },
+          // 希望・温かみの琥珀（単一アクセント＝CTA）
+          amber: {
+            400: '#F0B45A',
+            500: '#E89B3C',
+            600: '#D6862A',
+          },
+          paper: '#FAF7F1',   // 温かいクリーム地
+          card:  '#FFFFFF',
+          ink:   '#1B2722',   // 温かい近黒
+        },
+        boxShadow: {
+          soft: '0 10px 30px -12px rgba(15,61,56,0.18)',
+          lift: '0 18px 50px -20px rgba(15,61,56,0.30)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#FAF7F1; color:#1B2722; -webkit-font-smoothing:antialiased; }
+
+  /* スクロールリビール（IntersectionObserverで .is-in 付与） */
+  .reveal { opacity:0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.is-in { opacity:1; transform:none; }
+
+  /* チェックリストの「ふわっと点灯」 */
+  .tick { transition: background-color .4s ease, color .4s ease, border-color .4s ease; }
+
+  /* セルフチェックのギミック */
+  #selfcheck .tick { transition: transform .15s ease, border-color .25s ease, background-color .25s ease, box-shadow .25s ease; }
+  #selfcheck .tick:hover { border-color: rgba(232,155,60,.55); box-shadow: 0 12px 30px -14px rgba(15,61,56,.30); }
+  #selfcheck .tick:active { transform: scale(.99); }
+  @keyframes sc-pop { 0%{transform:scale(.86)} 55%{transform:scale(1.12)} 100%{transform:scale(1)} }
+  .sc-pop { animation: sc-pop .42s cubic-bezier(.16,1,.3,1); }
+  @keyframes sc-cardpop { 0%{transform:scale(.97)} 55%{transform:scale(1.015)} 100%{transform:scale(1)} }
+  .sc-cardpop { animation: sc-cardpop .5s cubic-bezier(.16,1,.3,1); }
+  @keyframes sc-celebrate { 0%{box-shadow:0 0 0 0 rgba(232,155,60,.55)} 100%{box-shadow:0 0 0 28px rgba(232,155,60,0)} }
+  .sc-celebrate { animation: sc-celebrate .9s ease-out; }
+  #sc-bar { transition: width .5s cubic-bezier(.16,1,.3,1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+    .sc-pop, .sc-cardpop, .sc-celebrate { animation: none !important; }
+  }
+
+  /* スマホ固定CTAぶんの余白 */
+  .pb-safe-cta { padding-bottom: 88px; }
+  @media (min-width: 768px) { .pb-safe-cta { padding-bottom:0; } }
+</style>
+</head>
+
+<body class="font-sans antialiased pb-safe-cta">
+
+<!-- ============ ヘッダー ============ -->
+<header class="sticky top-0 z-40 bg-paper/85 backdrop-blur border-b border-forest-900/10">
+  <div class="max-w-6xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center">
+      <img src="assets/logo.png" alt="支払いリセット計画" class="h-10 md:h-12 w-auto" />
+    </a>
+    <a href="#form" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-sm px-5 py-2.5 transition active:scale-[.98] shadow-soft">
+      無料で相談する
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ ファーストビュー ============ -->
+<section class="relative overflow-hidden bg-gradient-to-b from-forest-900 via-forest-900 to-forest-950">
+  <!-- 装飾の光 -->
+  <div class="absolute -top-24 -right-20 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-20 w-80 h-80 rounded-full bg-forest-700/30 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 pt-12 pb-16 md:pt-16 md:pb-24 min-h-[100dvh] md:min-h-0 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div>
+      <p class="reveal text-amber-400 font-bold tracking-wide text-sm md:text-base mb-4">毎月の支払いに、もう追われたくないあなたへ</p>
+
+      <h1 class="reveal font-display font-black text-paper leading-[1.2] text-[2.1rem] sm:text-5xl md:text-4xl lg:text-5xl tracking-tight">
+        競馬、リボ、見栄。<br />借金の理由は、<br />聞きません。
+      </h1>
+
+      <p class="reveal mt-6 text-forest-100 text-base md:text-lg leading-relaxed max-w-xl">
+        私たちが見るのは「過去」ではなく「これから」。住まいと家計を立て直す、無料の「支払いリセット診断」です。
+      </p>
+
+      <div class="reveal mt-8 flex flex-col items-start gap-3">
+        <a href="#form" class="inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-8 py-4 shadow-lift transition active:scale-[.98]">
+          借金を0にできるか、無料で相談する
+        </a>
+        <span class="text-forest-100/80 text-sm">最短60秒で予約。しつこい勧誘はありません。</span>
+      </div>
+
+      <ul class="reveal mt-9 flex flex-wrap gap-x-5 gap-y-2 text-forest-50 text-sm font-medium">
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>完全予約制</li>
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>相談無料</li>
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>秘密厳守</li>
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>オンライン対応</li>
+      </ul>
+    </div>
+
+    <!-- 家族イラスト -->
+    <div class="reveal">
+      <div class="relative mx-auto w-fit">
+        <div class="rounded-[2rem] overflow-hidden shadow-lift">
+          <img src="assets/hero.jpg" alt="マイホームでくつろぐ家族" class="w-full h-56 md:h-[26rem] object-cover" />
+        </div>
+        <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs md:text-sm font-bold bg-amber-500 text-forest-950 rounded-full px-4 py-1.5 shadow-soft">諦めなくて、いいんです。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 30秒セルフチェック（対象者の選別＆自分ごと化） ============ -->
+<section class="py-16 md:py-24 bg-paper">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="reveal text-center mb-9">
+      <p class="text-amber-600 font-bold mb-3">30秒セルフチェック</p>
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">あなたは、いちばん<br>「損している人」<wbr>かもしれません</h2>
+      <p class="mt-4 text-ink/60 max-w-xl mx-auto">実は、こんな人ほど借金を0にできる可能性が高いんです。当てはまる項目にチェックしてみてください。</p>
+    </div>
+
+    <div class="reveal mb-5">
+      <div class="flex justify-between items-end mb-2">
+        <span class="text-sm font-bold text-ink/70">あてはまる数</span>
+        <span class="font-bold text-ink/70"><span id="sc-count" class="text-amber-600 text-2xl font-display align-baseline">0</span> <span class="text-sm">/ 5</span></span>
+      </div>
+      <div class="h-3 rounded-full bg-forest-900/10 overflow-hidden">
+        <div id="sc-bar" class="h-full w-0 rounded-full bg-gradient-to-r from-amber-400 to-amber-600"></div>
+      </div>
+    </div>
+
+    <ul id="selfcheck" class="reveal grid gap-3">
+      <li class="tick flex items-start gap-4 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 mt-0.5 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span><span class="font-bold text-ink">過去に債務整理や、3か月以上の長期滞納をしたことがない</span><br><span class="text-sm text-ink/55">＝あなたの信用情報は、まだキレイです</span></span>
+      </li>
+      <li class="tick flex items-start gap-4 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 mt-0.5 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span><span class="font-bold text-ink">いまは正社員として働いている（勤続1年以上）</span><br><span class="text-sm text-ink/55">＝安定した収入がある、と見てもらえます</span></span>
+      </li>
+      <li class="tick flex items-start gap-4 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 mt-0.5 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span><span class="font-bold text-ink">年収は400万円以上ある</span><br><span class="text-sm text-ink/55">＝組み替えの選択肢がぐっと広がります</span></span>
+      </li>
+      <li class="tick flex items-start gap-4 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 mt-0.5 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span><span class="font-bold text-ink">カードローン・車・教育などの借金がある</span><br><span class="text-sm text-ink/55">＝この負担こそ、軽くできる余地があります</span></span>
+      </li>
+      <li class="tick flex items-start gap-4 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 mt-0.5 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span><span class="font-bold text-ink">毎月の返済が5万円以上で、正直きつい</span><br><span class="text-sm text-ink/55">＝いま見直せば、いちばん効果が出ます</span></span>
+      </li>
+    </ul>
+
+    <div id="sc-result" class="reveal mt-7 rounded-3xl p-7 md:p-9 text-center bg-forest-50 border-2 border-dashed border-forest-900/20 transition-colors duration-500">
+      <!-- ロック状態（2つ未満） -->
+      <div id="sc-locked">
+        <p class="font-bold text-ink/70">あてはまる項目を <span class="text-amber-600">2つ以上</span> チェックすると…</p>
+        <p class="mt-2 text-ink/45 text-sm">あなたの「いま」の結果が、ここに表示されます</p>
+      </div>
+      <!-- アンロック状態（2つ以上） -->
+      <div id="sc-unlocked" class="hidden">
+        <p class="text-amber-400 font-bold text-sm mb-2">診断結果</p>
+        <p id="sc-result-title" class="font-display font-bold text-xl md:text-2xl"></p>
+        <p id="sc-result-body" class="mt-3 text-forest-100 leading-relaxed"></p>
+        <a href="#form" class="mt-6 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold px-7 py-3.5 shadow-soft transition active:scale-[.98]">借金を0にできるか、無料で相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 給料日前の感情描写 ============ -->
+<section class="py-16 md:py-24 bg-paper">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <p class="reveal text-amber-600 font-bold mb-4">給料日なのに、もうお金の心配をしていませんか？</p>
+    <h2 class="reveal font-display font-bold text-2xl md:text-4xl leading-snug text-ink">
+      「今月も、ほとんど<br class="sm:hidden" />手元に残らない」
+    </h2>
+    <div class="reveal mt-8 grid gap-3 text-left max-w-xl mx-auto">
+      <p class="text-lg md:text-xl text-ink/80 leading-relaxed">給料が振り込まれた瞬間、引き落としで半分が消えていく。残高を見るのが、もう怖い。</p>
+      <p class="text-lg md:text-xl text-ink/80 leading-relaxed">ボーナスは「自分のお金」だと思えない。入った瞬間、もう返済に消える先が決まっている。</p>
+      <p class="text-lg md:text-xl text-ink/80 leading-relaxed">家賃、ローン、カード、リボ。払っても払っても、元金はちっとも減らない。</p>
+      <p class="text-lg md:text-xl text-ink/80 leading-relaxed">スーパーで、子どもが「これ買って」と言う。値札を見て、つい「今日はやめとこう」と言ってしまう。</p>
+      <p class="text-lg md:text-xl font-bold text-forest-900 leading-relaxed mt-2">「自分のせいだ」と、夜中にひとり、天井を見つめる。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 共感セクション（チェックリスト） ============ -->
+<section class="py-16 md:py-24 bg-forest-50">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="reveal text-center mb-10">
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">
+        あなたは、いくつ<br class="sm:hidden" />当てはまりますか？
+      </h2>
+      <p class="mt-4 text-ink/60">3つ以上当てはまるなら、見直しで支払いが軽くなる可能性があります。</p>
+    </div>
+
+    <ul id="checklist" class="reveal grid sm:grid-cols-2 gap-3">
+      <!-- 各項目はクリック/スクロールで点灯 -->
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">家賃を払っている</span>
+      </li>
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">カードローンがある</span>
+      </li>
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">車のローンがある</span>
+      </li>
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">毎月の返済が5万円以上</span>
+      </li>
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">ボーナスが返済で消える</span>
+      </li>
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">なかなか貯金できない</span>
+      </li>
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">将来のお金が不安だ</span>
+      </li>
+      <li class="tick group flex items-center gap-3 rounded-2xl bg-card border border-forest-900/10 px-5 py-4 cursor-pointer select-none shadow-soft">
+        <span class="check w-6 h-6 shrink-0 grid place-items-center rounded-md border-2 border-forest-700/40 text-transparent font-bold transition">✓</span>
+        <span class="font-medium text-ink">家を持つことを諦めている</span>
+      </li>
+    </ul>
+
+    <p class="reveal text-center mt-8 text-lg md:text-xl font-bold text-forest-900">
+      ひとつでも当てはまったあなたへ。<br class="sm:hidden" />まず知ってほしいことがあります。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 問題提起 ============ -->
+<section class="py-16 md:py-24 bg-paper">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7 md:p-12">
+      <p class="text-ink/50 font-medium mb-3">多くの人が、こう考えます。</p>
+      <p class="font-display font-bold text-xl md:text-3xl text-ink/40 line-through decoration-amber-500/70 decoration-2">
+        「もっと収入を増やさなければ」
+      </p>
+      <div class="my-7 h-px bg-forest-900/10"></div>
+      <p class="font-display font-bold text-2xl md:text-4xl text-forest-900 leading-snug">
+        でも本当にあなたを苦しめているのは、<br class="hidden md:block" />
+        <span class="text-amber-600">「お金の流れ」</span>かもしれません。
+      </p>
+      <p class="mt-6 text-ink/70 leading-relaxed text-base md:text-lg">
+        収入が少ないわけではない。それでも残らないのは、毎月の支払いの「組み立て方」に原因があるケースが少なくありません。流れを整えるだけで、手元に残るお金は変わります。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ なぜ"ちゃんと働いてるのに苦しい人"が一番有利か ============ -->
+<section class="py-16 md:py-24 bg-forest-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="reveal text-center mb-10 md:mb-14">
+      <p class="text-amber-600 font-bold mb-3">ここが、いちばん大事な話です</p>
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">なぜ「ちゃんと働いているのに苦しい人」が、<br class="hidden md:block"><span class="whitespace-nowrap">いちばん有利なのか</span></h2>
+    </div>
+
+    <div class="grid gap-4 md:gap-5">
+      <div class="reveal flex gap-5 md:gap-7 rounded-3xl bg-card border border-forest-900/10 shadow-soft p-6 md:p-8">
+        <span class="shrink-0 font-display font-black text-3xl md:text-5xl text-amber-500 leading-none">01</span>
+        <div>
+          <h3 class="font-bold text-lg md:text-xl text-ink">あなたの信用は、<span class="whitespace-nowrap">まだキレイ。</span></h3>
+          <p class="mt-2 text-ink/70 leading-relaxed">延滞や事故の記録がない。これは金融機関から見れば「優良」という評価です。お金には代えがたい、あなただけの財産です。</p>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 md:gap-7 rounded-3xl bg-card border border-forest-900/10 shadow-soft p-6 md:p-8">
+        <span class="shrink-0 font-display font-black text-3xl md:text-5xl text-amber-500 leading-none">02</span>
+        <div>
+          <h3 class="font-bold text-lg md:text-xl text-ink">その信用は、<span class="whitespace-nowrap">「組み替え」に使えます。</span></h3>
+          <p class="mt-2 text-ink/70 leading-relaxed">バラバラの高金利な借金を、住まいと一緒に低金利でひとつにまとめられる可能性があります。信用がある人だけに開かれた道です。</p>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 md:gap-7 rounded-3xl bg-card border border-forest-900/10 shadow-soft p-6 md:p-8">
+        <span class="shrink-0 font-display font-black text-3xl md:text-5xl text-amber-500 leading-none">03</span>
+        <div>
+          <h3 class="font-bold text-lg md:text-xl text-ink">結果、借金が<span class="whitespace-nowrap">「資産」に変わる。</span></h3>
+          <p class="mt-2 text-ink/70 leading-relaxed">毎月の支払いはほぼそのまま。でも、払ったお金は自分の家になっていきます。気づけば借金が消え、手元には資産が残る。そんな状態を目指せます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal mt-9 md:mt-12 text-center">
+      <p class="font-display font-bold text-xl md:text-3xl text-forest-900 leading-snug">信用がキレイな「いま」こそ、<br class="sm:hidden">借金を0にする最大のチャンスです。</p>
+      <p class="mt-3 text-ink/60">この信用は、延滞が始まると一瞬で失われます。動けるうちに、動きましょう。</p>
+      <a href="#form" class="mt-7 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-8 py-4 shadow-lift transition active:scale-[.98]">借金を0にできるか、無料で相談する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 危機感（カラーブロック：深いエバーグリーン） ============ -->
+<section class="py-16 md:py-24 bg-forest-900 text-paper">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="reveal text-center mb-10">
+      <p class="text-amber-400 font-bold mb-3">このまま、何もしなければ。</p>
+      <h2 class="font-display font-bold text-2xl md:text-4xl leading-snug">
+        5年後も、10年後も、<br class="sm:hidden" />同じ毎日が続きます
+      </h2>
+    </div>
+
+    <ul class="reveal grid gap-3 max-w-xl mx-auto">
+      <li class="flex items-start gap-3 rounded-2xl bg-forest-950/60 border border-paper/10 px-5 py-4">
+        <span class="text-amber-400 font-bold mt-0.5">→</span><span>払い続ける家賃は、いつまでも資産になりません</span>
+      </li>
+      <li class="flex items-start gap-3 rounded-2xl bg-forest-950/60 border border-paper/10 px-5 py-4">
+        <span class="text-amber-400 font-bold mt-0.5">→</span><span>物価は上がり、生活コストはさらに重くなります</span>
+      </li>
+      <li class="flex items-start gap-3 rounded-2xl bg-forest-950/60 border border-paper/10 px-5 py-4">
+        <span class="text-amber-400 font-bold mt-0.5">→</span><span>子どもの成長とともに、教育費は増えていきます</span>
+      </li>
+      <li class="flex items-start gap-3 rounded-2xl bg-forest-950/60 border border-paper/10 px-5 py-4">
+        <span class="text-amber-400 font-bold mt-0.5">→</span><span>老後資金も、いずれ必ず必要になります</span>
+      </li>
+      <li class="flex items-start gap-3 rounded-2xl bg-forest-950/60 border border-paper/10 px-5 py-4">
+        <span class="text-amber-400 font-bold mt-0.5">→</span><span>そしてその間も、返済だけは確実に続いていきます</span>
+      </li>
+    </ul>
+
+    <p class="reveal text-center mt-9 text-forest-100">
+      未来は、今日の「支払いの設計」で大きく変わります。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 解決策 ============ -->
+<section class="py-16 md:py-24 bg-paper">
+  <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+    <div class="reveal order-2 md:order-1">
+      <p class="text-amber-600 font-bold mb-3">私たちができること</p>
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">
+        住まいと資金計画の専門家が、<br class="hidden md:block" />
+        いまの支払いを<span class="whitespace-nowrap">「分析」します</span>
+      </h2>
+      <p class="mt-6 text-ink/70 leading-relaxed text-base md:text-lg">
+        現在の家賃・ローン・カードの状況を整理し、住居費と資金計画を総合的に見直し。月々の支払いを改善できる可能性を、無料で診断します。
+      </p>
+      <ol class="mt-8 grid gap-4">
+        <li class="flex gap-4">
+          <span class="shrink-0 w-9 h-9 grid place-items-center rounded-full bg-forest-900 text-paper font-display font-bold">1</span>
+          <div><p class="font-bold text-ink">いまの支払いをまるごと把握</p><p class="text-ink/60 text-sm mt-1">家賃・ローン・カードを一枚に整理します。</p></div>
+        </li>
+        <li class="flex gap-4">
+          <span class="shrink-0 w-9 h-9 grid place-items-center rounded-full bg-forest-900 text-paper font-display font-bold">2</span>
+          <div><p class="font-bold text-ink">住居費と資金計画を総合診断</p><p class="text-ink/60 text-sm mt-1">改善できる余地がどこにあるかを見える化。</p></div>
+        </li>
+        <li class="flex gap-4">
+          <span class="shrink-0 w-9 h-9 grid place-items-center rounded-full bg-forest-900 text-paper font-display font-bold">3</span>
+          <div><p class="font-bold text-ink">あなたに合う再設計プランをご提案</p><p class="text-ink/60 text-sm mt-1">押し付けません。判断はあなたのペースで。</p></div>
+        </li>
+      </ol>
+    </div>
+    <div class="reveal order-1 md:order-2">
+      <div class="rounded-3xl overflow-hidden shadow-soft">
+        <img src="assets/advisor.jpg" alt="資金計画を相談する様子" class="w-full h-72 md:h-[30rem] object-cover" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ベネフィット ============ -->
+<section class="py-16 md:py-24 bg-forest-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="reveal text-center mb-10 md:mb-14">
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">見直しで、暮らしはこう変わる</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      <div class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7">
+        <div class="w-11 h-11 grid place-items-center rounded-2xl bg-amber-500/15 text-amber-600 font-display font-bold text-xl mb-4">¥</div>
+        <h3 class="font-bold text-lg text-ink">毎月の負担が軽くなる可能性</h3>
+        <p class="mt-2 text-ink/60 text-sm leading-relaxed">支払いの中身を整えることで、手元に残るお金が変わります。</p>
+      </div>
+      <div class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7">
+        <div class="w-11 h-11 grid place-items-center rounded-2xl bg-amber-500/15 text-amber-600 font-display font-bold text-xl mb-4">≡</div>
+        <h3 class="font-bold text-lg text-ink">支払いの一本化で管理がラクに</h3>
+        <p class="mt-2 text-ink/60 text-sm leading-relaxed">あちこちに分かれた支払いを整理し、把握しやすく。</p>
+      </div>
+      <div class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7">
+        <div class="w-11 h-11 grid place-items-center rounded-2xl bg-amber-500/15 text-amber-600 font-display font-bold text-xl mb-4">⌂</div>
+        <h3 class="font-bold text-lg text-ink">マイホーム取得の可能性</h3>
+        <p class="mt-2 text-ink/60 text-sm leading-relaxed">諦めていた持ち家が、選択肢に入ることもあります。</p>
+      </div>
+      <div class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7">
+        <div class="w-11 h-11 grid place-items-center rounded-2xl bg-amber-500/15 text-amber-600 font-display font-bold text-xl mb-4">◎</div>
+        <h3 class="font-bold text-lg text-ink">将来設計がはっきりする</h3>
+        <p class="mt-2 text-ink/60 text-sm leading-relaxed">教育費・老後まで含めた見通しが立てやすくなります。</p>
+      </div>
+      <div class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7">
+        <div class="w-11 h-11 grid place-items-center rounded-2xl bg-amber-500/15 text-amber-600 font-display font-bold text-xl mb-4">♡</div>
+        <h3 class="font-bold text-lg text-ink">家族の安心につながる</h3>
+        <p class="mt-2 text-ink/60 text-sm leading-relaxed">お金の不安が減ると、家庭の空気も変わります。</p>
+      </div>
+      <div class="reveal rounded-3xl bg-forest-900 text-paper shadow-lift p-7 flex flex-col justify-center">
+        <p class="font-display font-bold text-lg leading-snug">まずは「いまの自分」を<br>知るところから。</p>
+        <a href="#form" class="mt-4 inline-flex w-max items-center gap-1 text-amber-400 font-bold">借金0の相談へ進む →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ シミュレーション ============ -->
+<section class="py-16 md:py-24 bg-paper">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="reveal text-center mb-10">
+      <p class="text-amber-600 font-bold mb-3">支払いは、こう変えられる</p>
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">毎月の支払い、見直しイメージ</h2>
+    </div>
+
+    <div class="reveal grid md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-3 items-stretch">
+      <!-- 現在 -->
+      <div class="rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7">
+        <p class="font-bold text-ink/50 mb-4">いまの支払い</p>
+        <dl class="space-y-2 text-ink/70">
+          <div class="flex justify-between"><dt>家賃</dt><dd class="font-medium">100,000円</dd></div>
+          <div class="flex justify-between"><dt>カード・ローン返済等</dt><dd class="font-medium">50,000円</dd></div>
+        </dl>
+        <div class="mt-4 pt-4 border-t border-forest-900/10 flex justify-between items-baseline">
+          <span class="font-bold text-ink">毎月</span>
+          <span class="font-display font-black text-2xl text-ink">150,000<span class="text-base font-bold">円</span></span>
+        </div>
+      </div>
+
+      <!-- 矢印 -->
+      <div class="grid place-items-center text-amber-500 font-black text-3xl md:rotate-0 rotate-90">→</div>
+
+      <!-- 見直し後 -->
+      <div class="rounded-3xl bg-forest-900 text-paper shadow-lift p-7 relative overflow-hidden">
+        <span class="absolute top-4 right-4 text-[11px] font-bold bg-amber-500 text-forest-950 rounded-full px-3 py-1">見直し後</span>
+        <p class="font-bold text-amber-400 mb-4">住居費と資金計画を整えると</p>
+        <dl class="space-y-2 text-forest-100">
+          <div class="flex justify-between"><dt>住居費＋資金計画</dt><dd class="font-medium">一本化</dd></div>
+        </dl>
+        <div class="mt-4 pt-4 border-t border-paper/15 flex justify-between items-baseline">
+          <span class="font-bold">毎月</span>
+          <span class="font-display font-black text-4xl text-amber-400">100,000<span class="text-base font-bold">円</span></span>
+        </div>
+        <p class="mt-3 text-sm text-forest-100/80">しかも、その支払いの一部は「自分の資産」になっていきます。</p>
+      </div>
+    </div>
+
+    <div class="reveal text-center mt-7">
+      <p class="font-display font-bold text-xl md:text-3xl text-forest-900">毎月<span class="text-amber-600">5万円</span>。<br class="sm:hidden">それは1年で<span class="text-amber-600">60万円</span>、10年で<span class="text-amber-600">600万円</span>です。</p>
+      <p class="mt-3 text-ink/60">あなたは、その大金を「家賃」として払い続けますか？それとも「自分の家」に変えますか？</p>
+    </div>
+
+    <p class="reveal text-center text-xs text-ink/45 mt-5">※上記はあくまで一例です。※効果には個人差があり、改善を保証するものではありません。</p>
+  </div>
+</section>
+
+<!-- ============ 事例（5件） ============ -->
+<section class="py-16 md:py-24 bg-forest-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="reveal text-center mb-10 md:mb-14">
+      <p class="text-amber-600 font-bold mb-3">正直に話してくれた、相談者のリアル</p>
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">借金の理由なんて、<br class="sm:hidden">誰も責めません。</h2>
+      <p class="mt-4 text-ink/60 max-w-xl mx-auto">ギャンブル、リボ、見栄。きっかけは人それぞれ。大事なのは「これから」です。</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <!-- 1 競馬 -->
+      <article class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft overflow-hidden">
+        <img src="assets/case1_keiba.jpg" alt="" class="w-full h-44 object-cover" />
+        <div class="p-6">
+          <p class="inline-block text-[11px] font-bold bg-amber-500/15 text-amber-700 rounded-full px-3 py-1 mb-3">競馬で借入100万円</p>
+          <p class="text-sm text-forest-700 font-bold">大谷さん（34歳・会社員）</p>
+          <p class="mt-3 text-ink/80 leading-relaxed">「週末の競馬で、気づけば借入が100万円を超えていました。給料はほぼ返済に消えて、奥さんにも言えず…。ダメ元で相談したら、責められるどころか『大丈夫ですよ』と。支払いを整理してもらって、毎月の返済が一気にラクになりました。今は家のことまで前向きに考えられています」</p>
+        </div>
+      </article>
+      <!-- 2 リボ -->
+      <article class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft overflow-hidden">
+        <img src="assets/case2_ribo.jpg" alt="" class="w-full h-44 object-cover" />
+        <div class="p-6">
+          <p class="inline-block text-[11px] font-bold bg-amber-500/15 text-amber-700 rounded-full px-3 py-1 mb-3">リボ払いで残高180万円</p>
+          <p class="text-sm text-forest-700 font-bold">楠田さん（31歳・会社員）</p>
+          <p class="mt-3 text-ink/80 leading-relaxed">「毎月ちゃんと払っているのに、リボの残高がまったく減らない。気づいたら180万円。手数料だけで月1万円以上も払っていたと知って、青ざめました。流れを見直してもらって、ようやく『元金が減っていく』感覚を取り戻せました」</p>
+        </div>
+      </article>
+      <!-- 3 車のローン -->
+      <article class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft overflow-hidden">
+        <img src="assets/case3_couple.jpg" alt="" class="w-full h-44 object-cover" />
+        <div class="p-6">
+          <p class="inline-block text-[11px] font-bold bg-amber-500/15 text-amber-700 rounded-full px-3 py-1 mb-3">車のローン＋カードで月7万円</p>
+          <p class="text-sm text-forest-700 font-bold">五十嵐さんご夫婦（36歳・共働き）</p>
+          <p class="mt-3 text-ink/80 leading-relaxed">「見栄を張って買った車のローンと、生活費の補填で使ったカード。気づけば返済が月7万円。ボーナスは毎回そのまま消えていきました。夫婦で相談に行って、支払いを一本化。『これなら家を買ったほうが安いですよ』と言われた時は、正直耳を疑いました」</p>
+        </div>
+      </article>
+      <!-- 4 奨学金+パチンコ -->
+      <article class="reveal rounded-3xl bg-card border border-forest-900/10 shadow-soft overflow-hidden">
+        <img src="assets/case4_pachinko.jpg" alt="" class="w-full h-44 object-cover" />
+        <div class="p-6">
+          <p class="inline-block text-[11px] font-bold bg-amber-500/15 text-amber-700 rounded-full px-3 py-1 mb-3">奨学金とパチンコで貯金ゼロ</p>
+          <p class="text-sm text-forest-700 font-bold">浜口さん（28歳・独身・正社員）</p>
+          <p class="mt-3 text-ink/80 leading-relaxed">「奨学金の返済が重いところに、ストレスでパチンコにも手を出して、貯金はずっとゼロ。このままじゃ結婚も無理だと焦っていました。お金の流れを整理してもらって、生まれて初めて毎月お金が残るようになりました」</p>
+        </div>
+      </article>
+      <!-- 5 大トリ：諦めていた持ち家 -->
+      <article class="reveal rounded-3xl bg-forest-900 text-paper shadow-lift overflow-hidden md:col-span-2">
+        <div class="grid md:grid-cols-[1fr_1.3fr]">
+          <img src="assets/case5_family.jpg" alt="" class="w-full h-44 md:h-full object-cover" />
+          <div class="p-6 md:p-9">
+            <p class="inline-block text-[11px] font-bold bg-amber-500 text-forest-950 rounded-full px-3 py-1 mb-3">借入総額250万円・3児の父</p>
+            <p class="text-sm text-amber-400 font-bold">高橋さん（38歳）</p>
+            <p class="mt-3 text-forest-50 leading-relaxed text-lg">「借金が250万あって、家なんて一生無理だと最初から諦めていました。子どもに『この家、ぼくたちの？』と聞かれても、笑ってごまかすしかなかった。藁にもすがる思いで相談して、自分にも道があると知ったとき、車の中で一人で泣きました。もっと早く相談すればよかった。本当に、それだけです」</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p class="reveal text-center text-xs text-ink/45 mt-6">※掲載内容は個人の感想・体験イメージであり、効果や結果を保証するものではありません。※プライバシー配慮のためイメージ画像・仮名を使用しています。</p>
+  </div>
+</section>
+
+<!-- ============ CTA前ブロック ============ ============ -->
+<section class="py-16 md:py-24 bg-paper">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <p class="reveal font-display font-bold text-2xl md:text-4xl text-forest-900 leading-snug">
+      「もっと早く相談すればよかった」<br class="hidden sm:block">
+      と言われることが、いちばん多いサービスです。
+    </p>
+    <p class="reveal mt-6 text-ink/70 leading-relaxed text-base md:text-lg">
+      知らないまま、いまの支払いを続ける前に。<br class="hidden sm:block">
+      まずは無料相談で、あなたの「いま」を確かめてみませんか。相談したからといって、何かを契約する必要はありません。
+    </p>
+    <a href="#form" class="reveal mt-9 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-9 py-4 shadow-lift transition active:scale-[.98]">
+      借金を0にできるか、無料で相談する
+    </a>
+  </div>
+</section>
+
+<!-- ============ 申込フォーム ============ -->
+<section id="form" class="py-16 md:py-24 bg-forest-900 text-paper scroll-mt-16">
+  <div class="max-w-2xl mx-auto px-4">
+    <div class="reveal text-center mb-8">
+      <h2 class="font-display font-bold text-2xl md:text-4xl">無料相談のご予約</h2>
+      <ul class="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-medium text-forest-100">
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>完全予約制</li>
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>相談無料</li>
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>秘密厳守</li>
+        <li class="flex items-center gap-1.5"><span class="text-amber-400">●</span>オンライン対応</li>
+      </ul>
+    </div>
+
+    <form id="lead-form" class="reveal rounded-3xl bg-paper text-ink p-6 md:p-8 shadow-lift grid gap-5" novalidate>
+      <div class="grid gap-2">
+        <label for="name" class="font-bold text-sm">お名前 <span class="text-amber-600">必須</span></label>
+        <input id="name" name="name" type="text" autocomplete="name" required placeholder="山田 太郎"
+          class="rounded-xl border border-forest-900/20 bg-white px-4 py-3 text-ink placeholder:text-ink/35 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+      </div>
+
+      <div class="grid gap-2">
+        <label for="tel" class="font-bold text-sm">電話番号 <span class="text-amber-600">必須</span></label>
+        <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required placeholder="09012345678"
+          class="rounded-xl border border-forest-900/20 bg-white px-4 py-3 text-ink placeholder:text-ink/35 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+        <p class="text-xs text-ink/50">日中つながりやすい番号をご記入ください。</p>
+      </div>
+
+      <div class="grid gap-2">
+        <label for="email" class="font-bold text-sm">メールアドレス</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="example@mail.com"
+          class="rounded-xl border border-forest-900/20 bg-white px-4 py-3 text-ink placeholder:text-ink/35 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+      </div>
+
+      <div class="grid gap-2">
+        <label for="balance" class="font-bold text-sm">現在の借入残高の目安 <span class="text-amber-600">必須</span></label>
+        <select id="balance" name="balance" required
+          class="rounded-xl border border-forest-900/20 bg-white px-4 py-3 text-ink focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+          <option value="" selected disabled>選択してください</option>
+          <option>100万円〜300万円</option>
+          <option>300万円〜500万円</option>
+          <option>500万円〜1,000万円</option>
+          <option>1,000万円以上</option>
+        </select>
+      </div>
+
+      <div class="grid gap-2">
+        <label for="credit" class="font-bold text-sm">過去の返済状況 <span class="text-amber-600">必須</span></label>
+        <select id="credit" name="credit" required
+          class="rounded-xl border border-forest-900/20 bg-white px-4 py-3 text-ink focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+          <option value="" selected disabled>選択してください</option>
+          <option>延滞や債務整理をしたことはない</option>
+          <option>過去に延滞したことがある</option>
+          <option>現在、延滞・滞納している</option>
+          <option>わからない</option>
+        </select>
+        <p class="text-xs text-ink/50">正確な診断のためにお伺いしています。内容で判断されることはありません。</p>
+      </div>
+
+      <div class="grid gap-2">
+        <span class="font-bold text-sm">ご希望の相談方法</span>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="flex items-center gap-2 rounded-xl border border-forest-900/20 px-4 py-3 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10">
+            <input type="radio" name="method" value="online" class="accent-amber-600" checked /> <span class="text-sm font-medium">オンライン</span>
+          </label>
+          <label class="flex items-center gap-2 rounded-xl border border-forest-900/20 px-4 py-3 cursor-pointer has-[:checked]:border-amber-500 has-[:checked]:bg-amber-500/10">
+            <input type="radio" name="method" value="tel" class="accent-amber-600" /> <span class="text-sm font-medium">電話</span>
+          </label>
+        </div>
+      </div>
+
+      <label class="flex items-start gap-3 text-sm text-ink/70">
+        <input type="checkbox" name="agree" required class="mt-1 accent-amber-600 w-4 h-4" />
+        <span><a href="#" class="underline text-forest-800">個人情報の取扱い</a>に同意します。</span>
+      </label>
+
+      <button type="submit"
+        class="rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-lg px-6 py-4 shadow-soft transition active:scale-[.98]">
+        この内容で無料相談を予約する
+      </button>
+      <p class="text-center text-xs text-ink/50">ご予約後、担当者よりご連絡いたします。しつこい勧誘は一切いたしません。</p>
+    </form>
+
+    <!-- 送信完了（成功状態） -->
+    <div id="form-success" class="reveal hidden rounded-3xl bg-paper text-ink p-8 md:p-10 shadow-lift text-center">
+      <div class="mx-auto w-14 h-14 grid place-items-center rounded-full bg-amber-500 text-forest-950 font-black text-2xl">✓</div>
+      <h3 class="mt-5 font-display font-bold text-2xl text-forest-900">ご予約ありがとうございます</h3>
+      <p class="mt-3 text-ink/70 leading-relaxed">担当者より、ご記入いただいた連絡先に追ってご連絡いたします。今日が、毎月の支払いから解放される最初の一歩です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="py-16 md:py-24 bg-paper">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="reveal font-display font-bold text-2xl md:text-4xl text-ink text-center mb-10">よくあるご質問</h2>
+    <div class="reveal grid gap-3">
+      <details class="group rounded-2xl bg-card border border-forest-900/10 shadow-soft p-5 [&_summary]:cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-ink list-none">本当に相談は無料ですか？<span class="text-amber-500 group-open:rotate-45 transition">＋</span></summary>
+        <p class="mt-3 text-ink/70 leading-relaxed">はい、ご相談・診断は無料です。費用が発生する場合は、必ず事前にご説明し、ご納得いただいてから進めます。</p>
+      </details>
+      <details class="group rounded-2xl bg-card border border-forest-900/10 shadow-soft p-5 [&_summary]:cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-ink list-none">借入が多くても相談できますか？<span class="text-amber-500 group-open:rotate-45 transition">＋</span></summary>
+        <p class="mt-3 text-ink/70 leading-relaxed">もちろんです。むしろ、支払いに不安がある方ほど、早めに現状を把握する価値があります。状況に合わせて一緒に整理します。</p>
+      </details>
+      <details class="group rounded-2xl bg-card border border-forest-900/10 shadow-soft p-5 [&_summary]:cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-ink list-none">無理に契約させられませんか？<span class="text-amber-500 group-open:rotate-45 transition">＋</span></summary>
+        <p class="mt-3 text-ink/70 leading-relaxed">いいえ。診断の結果をお伝えするだけで、その場で何かを決める必要はありません。判断はあなたのペースで大丈夫です。</p>
+      </details>
+      <details class="group rounded-2xl bg-card border border-forest-900/10 shadow-soft p-5 [&_summary]:cursor-pointer">
+        <summary class="flex justify-between items-center font-bold text-ink list-none">オンラインだけで完結しますか？<span class="text-amber-500 group-open:rotate-45 transition">＋</span></summary>
+        <p class="mt-3 text-ink/70 leading-relaxed">はい、オンライン相談に対応しています。ご自宅から、好きな時間にご相談いただけます。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer class="bg-forest-950 text-forest-100 py-12">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="mb-5">
+      <img src="assets/logo.png" alt="支払いリセット計画" class="h-12 md:h-14 w-auto" style="filter:brightness(0) invert(1)" />
+    </div>
+    <p class="text-sm text-forest-100/70 leading-relaxed max-w-3xl">
+      ※当サービスは住まいと資金計画に関する情報提供および無料診断を行うものです。当サービスは弁護士・司法書士が行う債務整理とは異なり、住まいと資金計画の見直しを通じて、支払い負担の軽減や借入の整理の可能性をご提案するものです。診断結果や改善効果には個人差があり、特定の結果や借入の完済を保証するものではありません。掲載している事例・数値は一例であり、すべての方に同様の結果をお約束するものではありません。ご相談内容は厳重に管理し、ご本人の同意なく第三者へ提供することはありません。
+    </p>
+    <div class="mt-6 pt-6 border-t border-paper/10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-forest-100/60">
+      <a href="#" class="hover:text-paper">プライバシーポリシー</a>
+      <a href="https://urakata.biz" target="_blank" rel="noopener" class="hover:text-paper">運営会社</a>
+      <a href="#" class="hover:text-paper">特定商取引法に基づく表記</a>
+    </div>
+    <p class="mt-6 text-xs text-forest-100/40">© 2026 支払いリセット計画. All rights reserved.</p>
+  </div>
+</footer>
+
+</main>
+
+<!-- ============ スマホ固定CTAバー ============ -->
+<div class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-paper/95 backdrop-blur border-t border-forest-900/10 px-3 py-3">
+  <a href="#form" class="flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base px-6 py-3.5 shadow-soft active:scale-[.98] transition">
+    借金を0にできるか無料で相談する
+  </a>
+</div>
+
+<script>
+  // スクロールリビール（scrollイベント不使用＝IntersectionObserver）
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // 共感チェックリスト(#checklist)：表示で自動点灯＋クリックでトグル
+  (function () {
+    var items = document.querySelectorAll('#checklist .tick');
+    function light(li) {
+      var box = li.querySelector('.check');
+      li.classList.add('bg-forest-50', 'border-amber-500/60');
+      box.classList.remove('text-transparent', 'border-forest-700/40');
+      box.classList.add('bg-amber-500', 'text-forest-950', 'border-amber-500');
+    }
+    function unlight(li) {
+      var box = li.querySelector('.check');
+      li.classList.remove('bg-forest-50', 'border-amber-500/60');
+      box.classList.add('text-transparent', 'border-forest-700/40');
+      box.classList.remove('bg-amber-500', 'text-forest-950', 'border-amber-500');
+    }
+    items.forEach(function (li) {
+      li.dataset.on = '0';
+      li.addEventListener('click', function () {
+        if (li.dataset.on === '1') { unlight(li); li.dataset.on = '0'; }
+        else { light(li); li.dataset.on = '1'; }
+      });
+    });
+    // 共感チェックリスト(#checklist)のみスクロールで自動点灯。
+    // セルフチェック(#selfcheck)は最初は未チェックで、ユーザーがタップして点灯。
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e, i) {
+          if (e.isIntersecting && e.target.dataset.on === '0') {
+            setTimeout(function () { if (e.target.dataset.on === '0') { light(e.target); e.target.dataset.on = '1'; } }, i * 90);
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('#checklist .tick').forEach(function (li) { io.observe(li); });
+    }
+  })();
+
+  // 30秒セルフチェック：タップで点灯＋カウント＋2つ以上で結果アンロック
+  (function () {
+    var items = [].slice.call(document.querySelectorAll('#selfcheck .tick'));
+    if (!items.length) return;
+    var countEl = document.getElementById('sc-count');
+    var bar = document.getElementById('sc-bar');
+    var box = document.getElementById('sc-result');
+    var locked = document.getElementById('sc-locked');
+    var unlocked = document.getElementById('sc-unlocked');
+    var titleEl = document.getElementById('sc-result-title');
+    var bodyEl = document.getElementById('sc-result-body');
+    var THRESH = 2;
+    var wasUnlocked = false;
+
+    function setItem(li, on) {
+      var c = li.querySelector('.check');
+      li.dataset.on = on ? '1' : '0';
+      if (on) {
+        li.classList.add('bg-forest-50', 'border-amber-500/60');
+        c.classList.remove('text-transparent', 'border-forest-700/40');
+        c.classList.add('bg-amber-500', 'text-forest-950', 'border-amber-500');
+        c.classList.remove('sc-pop'); void c.offsetWidth; c.classList.add('sc-pop');
+      } else {
+        li.classList.remove('bg-forest-50', 'border-amber-500/60');
+        c.classList.add('text-transparent', 'border-forest-700/40');
+        c.classList.remove('bg-amber-500', 'text-forest-950', 'border-amber-500');
+      }
+    }
+    function count() { var n = 0; items.forEach(function (li) { if (li.dataset.on === '1') n++; }); return n; }
+    function msg(n) {
+      if (n >= 5) return ['今すぐ動くべきは、あなたです。', '5つすべて該当＝もっとも改善できる余地が大きいタイプ。1日でも早い相談が効きます。'];
+      if (n >= 3) return ['あなたは、いちばん「損している人」かも。', 'まだ「使える信用」が残っています。それが、借金を0にできる最大の武器です。今が動きどきです。'];
+      return ['おっ、可能性あります。', 'あなたにも「使える信用」が残っているかもしれません。まずは無料で確かめてみませんか？'];
+    }
+    function update() {
+      var n = count();
+      countEl.textContent = n;
+      bar.style.width = (n / items.length * 100) + '%';
+      if (n >= THRESH) {
+        var m = msg(n);
+        titleEl.textContent = m[0]; bodyEl.textContent = m[1];
+        locked.classList.add('hidden'); unlocked.classList.remove('hidden');
+        box.classList.add('bg-forest-900', 'text-paper');
+        box.classList.remove('bg-forest-50', 'border-dashed', 'border-forest-900/20');
+        box.classList.remove('sc-cardpop'); void box.offsetWidth; box.classList.add('sc-cardpop');
+        if (!wasUnlocked) { wasUnlocked = true; box.classList.remove('sc-celebrate'); void box.offsetWidth; box.classList.add('sc-celebrate'); }
+      } else {
+        locked.classList.remove('hidden'); unlocked.classList.add('hidden');
+        box.classList.remove('bg-forest-900', 'text-paper', 'sc-celebrate');
+        box.classList.add('bg-forest-50', 'border-dashed', 'border-forest-900/20');
+        wasUnlocked = false;
+      }
+    }
+    items.forEach(function (li) {
+      li.dataset.on = '0';
+      li.addEventListener('click', function () { setItem(li, li.dataset.on !== '1'); update(); });
+    });
+    update();
+  })();
+
+  // フォーム送信：Googleスプレッドシート(Apps Script)へPOST → 成功でCV発火
+  (function () {
+    // ↓ Google Apps ScriptのウェブアプリURLを貼る（gas-code.gs参照）。空の間はデモ動作。
+    var GAS_ENDPOINT = '';
+
+    var form = document.getElementById('lead-form');
+    var ok = document.getElementById('form-success');
+    if (!form) return;
+    var btn = form.querySelector('button[type="submit"]');
+    var btnLabel = btn ? btn.textContent : '';
+
+    // 申込完了で各広告のコンバージョンを発火
+    function fireConversions() {
+      try {
+        if (typeof gtag === 'function') {
+          // Google広告コンバージョン（send_toを実ラベルに差し替え）
+          gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXXX/xxxxxxxxxxxxxxx' });
+          // GA4イベント
+          gtag('event', 'generate_lead', { value: 1, currency: 'JPY' });
+        }
+      } catch (e) {}
+      try { if (typeof fbq === 'function') { fbq('track', 'Lead'); } } catch (e) {}
+    }
+
+    function showSuccess() {
+      form.classList.add('hidden');
+      ok.classList.remove('hidden');
+      ok.classList.add('is-in');
+      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      fireConversions();
+    }
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      if (!GAS_ENDPOINT) { showSuccess(); return; } // 未設定時はデモ表示
+
+      if (btn) { btn.disabled = true; btn.textContent = '送信中...'; }
+      fetch(GAS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) })
+        .then(function () { showSuccess(); })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+          alert('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');
+        });
+    });
+  })();
+</script>
+</body>
+</html>
