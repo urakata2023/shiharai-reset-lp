@@ -584,52 +584,67 @@
   </div>
 </section>
 
-<!-- ============ シミュレーション ============ -->
+<!-- ============ 導入イメージ（シミュレーション） ============ -->
 <section class="py-16 md:py-24 bg-paper">
-  <div class="max-w-3xl mx-auto px-4">
-    <div class="reveal text-center mb-10">
-      <p class="text-amber-600 font-bold mb-3">支払いは、こう変えられる</p>
-      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">毎月の支払い、見直しイメージ</h2>
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="reveal text-center mb-10 md:mb-14">
+      <p class="text-amber-600 font-bold mb-3">あなたの場合は？</p>
+      <h2 class="font-display font-bold text-2xl md:text-4xl text-ink leading-snug">支払いリセットの<span class="whitespace-nowrap">「導入イメージ」</span></h2>
+      <p class="mt-4 text-ink/60 max-w-xl mx-auto">ポイントは、いま払っている<strong class="text-ink">家賃も借金も、まとめて住宅ローンに置き換える</strong>こと。</p>
     </div>
 
-    <div class="reveal grid md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-3 items-stretch">
-      <!-- 現在 -->
-      <div class="rounded-3xl bg-card border border-forest-900/10 shadow-soft p-7">
-        <p class="font-bold text-ink/50 mb-4">いまの支払い</p>
-        <dl class="space-y-2 text-ink/70">
-          <div class="flex justify-between"><dt>家賃</dt><dd class="font-medium">100,000円</dd></div>
-          <div class="flex justify-between"><dt>カード・ローン返済等</dt><dd class="font-medium">50,000円</dd></div>
-        </dl>
-        <div class="mt-4 pt-4 border-t border-forest-900/10 flex justify-between items-baseline">
-          <span class="font-bold text-ink">毎月</span>
-          <span class="font-display font-black text-2xl text-ink">150,000<span class="text-base font-bold">円</span></span>
+    <div class="reveal grid md:grid-cols-[1fr_auto_1fr] gap-5 md:gap-4 items-stretch">
+      <!-- いま -->
+      <div class="rounded-3xl bg-card border border-forest-900/10 shadow-soft p-6 md:p-7">
+        <p class="font-bold text-ink/50 mb-4">いまの支払い（毎月）</p>
+        <div class="flex h-4 rounded-full overflow-hidden mb-5">
+          <div style="width:23.5%" class="bg-forest-900"></div>
+          <div style="width:24.8%" class="bg-forest-800"></div>
+          <div style="width:9.2%" class="bg-forest-700"></div>
+          <div style="width:42.5%" class="bg-forest-700/50"></div>
+        </div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm bg-forest-900"></span>カードローン</span><span class="font-medium text-ink/70">36,000円</span></li>
+          <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm bg-forest-800"></span>車のローン</span><span class="font-medium text-ink/70">38,000円</span></li>
+          <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm bg-forest-700"></span>その他の借入</span><span class="font-medium text-ink/70">14,000円</span></li>
+          <li class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm bg-forest-700/50"></span>家賃</span><span class="font-medium text-ink/70">65,000円</span></li>
+        </ul>
+        <div class="mt-5 pt-4 border-t border-forest-900/10 flex justify-between items-baseline">
+          <span class="font-bold text-ink">合計 毎月</span>
+          <span class="font-display font-black text-2xl md:text-3xl text-ink">153,000<span class="text-base font-bold">円</span></span>
         </div>
       </div>
 
       <!-- 矢印 -->
-      <div class="grid place-items-center text-amber-500 font-black text-3xl md:rotate-0 rotate-90">→</div>
+      <div class="grid place-items-center text-amber-500 font-black text-3xl rotate-90 md:rotate-0">→</div>
 
-      <!-- 見直し後 -->
-      <div class="rounded-3xl bg-forest-900 text-paper shadow-lift p-7 relative overflow-hidden">
-        <span class="absolute top-4 right-4 text-[11px] font-bold bg-amber-500 text-forest-950 rounded-full px-3 py-1">見直し後</span>
-        <p class="font-bold text-amber-400 mb-4">住居費と資金計画を整えると</p>
-        <dl class="space-y-2 text-forest-100">
-          <div class="flex justify-between"><dt>住居費＋資金計画</dt><dd class="font-medium">一本化</dd></div>
-        </dl>
-        <div class="mt-4 pt-4 border-t border-paper/15 flex justify-between items-baseline">
-          <span class="font-bold">毎月</span>
-          <span class="font-display font-black text-4xl text-amber-400">100,000<span class="text-base font-bold">円</span></span>
+      <!-- 導入後 -->
+      <div class="rounded-3xl bg-forest-900 text-paper shadow-lift p-6 md:p-7 relative overflow-hidden">
+        <span class="absolute top-4 right-4 text-[11px] font-bold bg-amber-500 text-forest-950 rounded-full px-3 py-1">導入後</span>
+        <div class="flex items-center gap-2 text-amber-400 font-bold mb-2">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 fill-amber-400" aria-hidden="true"><path d="M12 3 2 11h3v9h6v-6h2v6h6v-9h3z"/></svg>
+          住宅ローンに一本化＝マイホーム取得
         </div>
-        <p class="mt-3 text-sm text-forest-100/80">しかも、その支払いの一部は「自分の資産」になっていきます。</p>
+        <p class="text-forest-100 text-sm">家賃も借金も、ひとつの住宅ローンへ。</p>
+        <div class="mt-5 flex items-end justify-between gap-2">
+          <div>
+            <p class="text-sm font-bold text-forest-100">毎月</p>
+            <p class="font-display font-black text-4xl md:text-5xl text-amber-400 leading-none">110,000<span class="text-base font-bold">円</span></p>
+          </div>
+          <span class="mb-1 shrink-0 text-sm font-bold bg-amber-500 text-forest-950 rounded-full px-3 py-1">▲43,000円</span>
+        </div>
+        <p class="mt-4 pt-4 border-t border-paper/15 text-forest-100/80 text-xs leading-relaxed">
+          ローン総額の目安 約3,900万円（返済35年・金利1%台の一例）。<br>しかも、支払いの一部は「自分の資産」になっていきます。
+        </p>
       </div>
     </div>
 
-    <div class="reveal text-center mt-7">
-      <p class="font-display font-bold text-xl md:text-3xl text-forest-900">毎月<span class="text-amber-600">5万円</span>。<br class="sm:hidden">それは1年で<span class="text-amber-600">60万円</span>、10年で<span class="text-amber-600">600万円</span>です。</p>
-      <p class="mt-3 text-ink/60">あなたは、その大金を「家賃」として払い続けますか？それとも「自分の家」に変えますか？</p>
+    <div class="reveal text-center mt-9">
+      <p class="font-display font-bold text-xl md:text-3xl text-forest-900 leading-snug">毎月<span class="text-amber-600">43,000円</span>の差。<br class="sm:hidden">10年なら、およそ<span class="text-amber-600">500万円</span>。</p>
+      <p class="mt-3 text-ink/60">その大金を「家賃」で消し続けますか？それとも「自分の家」に変えますか？</p>
     </div>
 
-    <p class="reveal text-center text-xs text-ink/45 mt-5">※上記はあくまで一例です。※効果には個人差があり、改善を保証するものではありません。</p>
+    <p class="reveal text-center text-xs text-ink/45 mt-6">※個人の条件により金額は異なります。上記はあくまで一例で、効果や結果を保証するものではありません。</p>
   </div>
 </section>
 
