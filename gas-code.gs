@@ -28,7 +28,7 @@ function doPost(e) {
     var sheet = ss.getSheetByName('リード') || ss.insertSheet('リード');
 
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['受付日時', 'お名前', '電話番号', 'メール', '借入残高', '過去の返済状況', '相談方法', '同意']);
+      sheet.appendRow(['受付日時', 'お名前', '電話番号', 'メール', '借入残高', '借入社数', '過去の返済状況', 'きっかけ', '相談方法', '同意']);
     }
 
     var p = (e && e.parameter) ? e.parameter : {};
@@ -38,7 +38,9 @@ function doPost(e) {
       p.tel || '',
       p.email || '',
       p.balance || '',
+      p.lenders || '',
       p.credit || '',
+      p.source || '',
       p.method || '',
       p.agree ? '同意' : ''
     ]);
