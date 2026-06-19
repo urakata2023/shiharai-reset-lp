@@ -1107,11 +1107,8 @@
     }
 
     function showSuccess() {
-      form.classList.add('hidden');
-      ok.classList.remove('hidden');
-      ok.classList.add('is-in');
-      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      fireConversions();
+      // 申込完了ページへ遷移（CVはthanks.html側で発火）
+      window.location.assign('thanks.html');
     }
 
     form.addEventListener('submit', function (ev) {

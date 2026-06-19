@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex,nofollow" />
+<title>ご予約ありがとうございます｜支払いリセット計画</title>
+<meta name="theme-color" content="#0F3D38" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/favicon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet" />
+
+<!-- ============================================================
+     計測タグ（index.html と同じIDに差し替えること）
+     ・GA4測定ID:        G-XXXXXXXXXX
+     ・Google広告ID:     AW-XXXXXXXXXX
+     ・Google広告CVラベル: AW-XXXXXXXXXX/xxxxxxxxxxxxxxx （本ページ下部のコンバージョン発火にも記載）
+     ・Meta PixelID:     XXXXXXXXXXXXXXX
+     ============================================================ -->
+<!-- Google tag (gtag.js) : GA4 + Google広告 共通 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');   // GA4 測定ID
+  gtag('config', 'AW-XXXXXXXXXX');  // Google広告 コンバージョンID
+</script>
+<!-- Meta Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'XXXXXXXXXXXXXXX');   // Meta Pixel ID
+  fbq('track', 'PageView');
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      fontFamily: {
+        sans: ['"Noto Sans JP"', 'system-ui', 'sans-serif'],
+        display: ['"Zen Kaku Gothic New"', '"Noto Sans JP"', 'sans-serif'],
+      },
+      colors: {
+        forest: { 50:'#EEF5F2',100:'#D7E8E1',700:'#1C6B5F',800:'#114B43',900:'#0F3D38',950:'#0A2C28' },
+        amber: { 400:'#F0B45A',500:'#E89B3C',600:'#D6862A' },
+        paper: '#FAF7F1', card:'#FFFFFF', ink:'#1B2722',
+      },
+      boxShadow: { soft:'0 10px 30px -12px rgba(15,61,56,0.18)', lift:'0 18px 50px -20px rgba(15,61,56,0.30)' },
+    } },
+  };
+</script>
+<style>
+  body { background:#FAF7F1; color:#1B2722; -webkit-font-smoothing:antialiased; }
+</style>
+</head>
+
+<body class="font-sans antialiased">
+<main class="min-h-[100dvh] grid place-items-center px-4 py-12 bg-gradient-to-b from-forest-900 to-forest-950">
+  <div class="w-full max-w-lg">
+    <div class="flex justify-center mb-7">
+      <img src="assets/logo.png" alt="支払いリセット計画" class="h-10 md:h-12 w-auto" style="filter:brightness(0) invert(1)" />
+    </div>
+
+    <div class="rounded-[2rem] bg-paper text-ink shadow-lift p-8 md:p-10 text-center">
+      <div class="mx-auto w-16 h-16 grid place-items-center rounded-full bg-amber-500 text-forest-950 font-black text-3xl">✓</div>
+      <h1 class="mt-6 font-display font-bold text-2xl md:text-3xl text-forest-900 leading-snug">ご予約ありがとうございます</h1>
+      <p class="mt-4 text-ink/70 leading-relaxed">
+        お申し込みを受け付けました。担当者より、ご記入いただいた連絡先に追ってご連絡いたします。<br class="hidden sm:block">
+        今日が、毎月の支払いから解放される最初の一歩です。
+      </p>
+
+      <div class="mt-7 rounded-2xl bg-forest-50 p-5 text-left">
+        <p class="font-bold text-ink mb-3">このあとの流れ</p>
+        <ul class="grid gap-2 text-sm text-ink/75">
+          <li class="flex gap-2"><span class="text-amber-600 font-bold">1.</span>担当者からご連絡（お電話またはメール）</li>
+          <li class="flex gap-2"><span class="text-amber-600 font-bold">2.</span>ご希望の方法で無料相談（オンライン対応）</li>
+          <li class="flex gap-2"><span class="text-amber-600 font-bold">3.</span>あなた専用の改善プランをご提案</li>
+        </ul>
+      </div>
+
+      <p class="mt-6 text-xs text-ink/50">完全予約制・相談無料・秘密厳守。しつこい勧誘は一切いたしません。</p>
+
+      <a href="./" class="mt-7 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold px-7 py-3.5 shadow-soft transition active:scale-[.98]">
+        トップにもどる
+      </a>
+    </div>
+  </div>
+</main>
+
+<script>
+  // 申込完了ページの表示＝コンバージョン発火
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXXX/xxxxxxxxxxxxxxx' }); // Google広告
+      gtag('event', 'generate_lead', { value: 1, currency: 'JPY' });             // GA4
+    }
+  } catch (e) {}
+  try { if (typeof fbq === 'function') { fbq('track', 'Lead'); } } catch (e) {}
+</script>
+</body>
+</html>
