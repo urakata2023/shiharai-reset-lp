@@ -811,6 +811,7 @@
     </div>
 
     <form id="lead-form" class="reveal rounded-3xl bg-paper text-ink p-6 md:p-8 shadow-lift grid gap-5" novalidate>
+      <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
       <div class="grid gap-2">
         <label for="name" class="font-bold text-sm">お名前 <span class="text-amber-600">必須</span></label>
         <input id="name" name="name" type="text" autocomplete="name" required placeholder="山田 太郎"
@@ -1082,10 +1083,9 @@
     update();
   })();
 
-  // フォーム送信：Googleスプレッドシート(Apps Script)へPOST → 成功でCV発火
+  // フォーム送信：PHPハンドラ(form-handler.php)へPOST → メール送信 → 成功でCV発火
   (function () {
-    // ↓ Google Apps ScriptのウェブアプリURLを貼る（gas-code.gs参照）。空の間はデモ動作。
-    var GAS_ENDPOINT = '';
+    var FORM_ENDPOINT = 'form-handler.php'; // 同一ディレクトリのPHP（sato@urakata.biz へメール）
 
     var form = document.getElementById('lead-form');
     var ok = document.getElementById('form-success');
@@ -1118,14 +1118,16 @@
       ev.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
-      if (!GAS_ENDPOINT) { showSuccess(); return; } // 未設定時はデモ表示
-
       if (btn) { btn.disabled = true; btn.textContent = '送信中...'; }
-      fetch(GAS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form)) })
-        .then(function () { showSuccess(); })
-        .catch(function () {
+      fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return { status: r.ok ? 'ok' : 'error' }; }); })
+        .then(function (d) {
+          if (d && d.status === 'ok') { showSuccess(); }
+          else { throw new Error(d && d.message ? d.message : '送信エラー'); }
+        })
+        .catch(function (err) {
           if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
-          alert('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');
+          alert((err && err.message ? err.message : '送信に失敗しました') + '\nお手数ですが、もう一度お試しください。');
         });
     });
   })();
