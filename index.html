@@ -134,7 +134,7 @@
     <a href="#top" class="flex items-center">
       <img src="assets/logo.png" alt="支払いリセット計画" class="h-10 md:h-12 w-auto" />
     </a>
-    <a href="#form" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-sm px-5 py-2.5 transition active:scale-[.98] shadow-soft">
+    <a href="#form" data-cta="header" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-sm px-5 py-2.5 transition active:scale-[.98] shadow-soft">
       無料で相談する
     </a>
   </div>
@@ -161,7 +161,7 @@
       </p>
 
       <div class="reveal mt-8 flex flex-col items-start gap-3">
-        <a href="#form" class="inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-8 py-4 shadow-lift transition active:scale-[.98]">
+        <a href="#form" data-cta="hero" class="inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-8 py-4 shadow-lift transition active:scale-[.98]">
           借金を0にできるか、無料で相談する
         </a>
         <span class="text-forest-100/80 text-sm">最短60秒で予約。しつこい勧誘はありません。</span>
@@ -240,7 +240,7 @@
         <p class="text-amber-400 font-bold text-sm mb-2">診断結果</p>
         <p id="sc-result-title" class="font-display font-bold text-xl md:text-2xl"></p>
         <p id="sc-result-body" class="mt-3 text-forest-100 leading-relaxed"></p>
-        <a href="#form" class="mt-6 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold px-7 py-3.5 shadow-soft transition active:scale-[.98]">借金を0にできるか、無料で相談する</a>
+        <a href="#form" data-cta="selfcheck" class="mt-6 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold px-7 py-3.5 shadow-soft transition active:scale-[.98]">借金を0にできるか、無料で相談する</a>
       </div>
     </div>
   </div>
@@ -390,7 +390,7 @@
     <div class="reveal mt-9 md:mt-12 text-center">
       <p class="font-display font-bold text-xl md:text-3xl text-forest-900 leading-snug">信用がキレイな「いま」こそ、<br class="sm:hidden">借金を0にする最大のチャンスです。</p>
       <p class="mt-3 text-ink/60">この信用は、延滞が始まると一瞬で失われます。動けるうちに、動きましょう。</p>
-      <a href="#form" class="mt-7 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-8 py-4 shadow-lift transition active:scale-[.98]">借金を0にできるか、無料で相談する</a>
+      <a href="#form" data-cta="why" class="mt-7 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-8 py-4 shadow-lift transition active:scale-[.98]">借金を0にできるか、無料で相談する</a>
     </div>
   </div>
 </section>
@@ -569,7 +569,7 @@
       </div>
       <div class="reveal rounded-3xl bg-forest-900 text-paper shadow-lift p-7 flex flex-col justify-center">
         <p class="font-display font-bold text-lg leading-snug">まずは「いまの自分」を<br>知るところから。</p>
-        <a href="#form" class="mt-4 inline-flex w-max items-center gap-1 text-amber-400 font-bold">借金0の相談へ進む →</a>
+        <a href="#form" data-cta="benefit" class="mt-4 inline-flex w-max items-center gap-1 text-amber-400 font-bold">借金0の相談へ進む →</a>
       </div>
     </div>
 
@@ -758,7 +758,7 @@
       知らないまま、いまの支払いを続ける前に。<br class="hidden sm:block">
       まずは無料相談で、あなたの「いま」を確かめてみませんか。相談したからといって、何かを契約する必要はありません。
     </p>
-    <a href="#form" class="reveal mt-9 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-9 py-4 shadow-lift transition active:scale-[.98]">
+    <a href="#form" data-cta="cta_block" class="reveal mt-9 inline-flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base md:text-lg px-9 py-4 shadow-lift transition active:scale-[.98]">
       借金を0にできるか、無料で相談する
     </a>
   </div>
@@ -965,7 +965,7 @@
 
 <!-- ============ スマホ固定CTAバー ============ -->
 <div class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-paper/95 backdrop-blur border-t border-forest-900/10 px-3 py-3">
-  <a href="#form" class="flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base px-6 py-3.5 shadow-soft active:scale-[.98] transition">
+  <a href="#form" data-cta="sticky" class="flex justify-center items-center rounded-full bg-amber-500 hover:bg-amber-600 text-forest-950 font-bold text-base px-6 py-3.5 shadow-soft active:scale-[.98] transition">
     借金を0にできるか無料で相談する
   </a>
 </div>
@@ -1120,7 +1120,10 @@
       fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form) })
         .then(function (r) { return r.json().catch(function () { return { status: r.ok ? 'ok' : 'error' }; }); })
         .then(function (d) {
-          if (d && d.status === 'ok') { showSuccess(); }
+          if (d && d.status === 'ok') {
+            try { if (typeof gtag === 'function') gtag('event', 'form_submit'); } catch (e) {}
+            showSuccess();
+          }
           else { throw new Error(d && d.message ? d.message : '送信エラー'); }
         })
         .catch(function (err) {
@@ -1128,6 +1131,63 @@
           alert((err && err.message ? err.message : '送信に失敗しました') + '\nお手数ですが、もう一度お試しください。');
         });
     });
+  })();
+
+  // ============ GA4 詳細トラッキング（カスタムイベント） ============
+  (function () {
+    function track(name, params) { try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {} }
+
+    // CTAクリック（どのボタンが押されたか）
+    document.querySelectorAll('a[href="#form"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        track('cta_click', { cta_location: a.getAttribute('data-cta') || 'other' });
+      });
+    });
+
+    // フォーム入力開始（最初のフォーカス1回だけ）
+    var form = document.getElementById('lead-form');
+    if (form) {
+      var started = false;
+      form.addEventListener('focusin', function () {
+        if (started) return; started = true;
+        track('form_start');
+      });
+    }
+
+    // 30秒セルフチェック：操作開始 / 2つ以上で結果アンロック
+    var sc = document.getElementById('selfcheck');
+    if (sc) {
+      var engaged = false;
+      sc.addEventListener('click', function (e) {
+        if (e.target.closest('.tick') && !engaged) { engaged = true; track('selfcheck_engage'); }
+      });
+      var unlocked = document.getElementById('sc-unlocked');
+      if (unlocked && 'MutationObserver' in window) {
+        var firedUnlock = false;
+        new MutationObserver(function () {
+          if (!firedUnlock && !unlocked.classList.contains('hidden')) { firedUnlock = true; track('selfcheck_unlock'); }
+        }).observe(unlocked, { attributes: true, attributeFilter: ['class'] });
+      }
+    }
+
+    // FAQ開封
+    document.querySelectorAll('details').forEach(function (d) {
+      d.addEventListener('toggle', function () { if (d.open) track('faq_open'); });
+    });
+
+    // スクロール深度 25/50/75/100%（各1回）
+    var marks = [25, 50, 75, 100], hit = {}, ticking = false;
+    function check() {
+      var st = window.scrollY || document.documentElement.scrollTop;
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h <= 0) return;
+      var p = Math.min(100, Math.round(st / h * 100));
+      marks.forEach(function (m) { if (p >= m && !hit[m]) { hit[m] = true; track('scroll_depth', { percent: m }); } });
+      if (hit[100]) window.removeEventListener('scroll', onScroll);
+    }
+    function onScroll() { if (ticking) return; ticking = true; requestAnimationFrame(function () { check(); ticking = false; }); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    check();
   })();
 </script>
 </body>
