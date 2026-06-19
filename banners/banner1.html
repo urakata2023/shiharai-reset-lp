@@ -6,27 +6,35 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:#ccc}
-  .banner{width:1080px;height:1080px;position:relative;overflow:hidden;font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;color:#fff}
-  .bg{position:absolute;inset:0}
-  .bg img{width:100%;height:100%;object-fit:cover}
-  .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,61,56,.50) 0%,rgba(15,61,56,.10) 32%,rgba(10,44,40,.90) 100%)}
-  .wrap{position:absolute;inset:0;padding:64px;display:flex;flex-direction:column;justify-content:space-between}
-  .logo{height:58px;filter:brightness(0) invert(1)}
-  .h{font-weight:900;font-size:78px;line-height:1.2;letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,.3)}
-  .sub{margin-top:22px;font-size:31px;font-weight:500;color:#EAF3EF}
-  .cta{margin-top:38px;display:inline-block;background:#E89B3C;color:#0A2C28;font-weight:900;font-size:37px;padding:26px 54px;border-radius:999px}
-  .badges{margin-top:30px;display:flex;gap:30px;font-size:26px;font-weight:700;color:#EFF6F2}
+  .banner{width:1080px;height:1080px;position:relative;overflow:hidden;background:#0F3D38;
+    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;display:flex;flex-direction:column}
+  /* 上：写真 */
+  .photo{position:relative;height:600px;flex:none}
+  .photo .bgimg{width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block}
+  .topgrad{position:absolute;top:0;left:0;right:0;height:200px;background:linear-gradient(180deg,rgba(10,44,40,.55),transparent)}
+  .logo{position:absolute;top:46px;left:64px;height:54px;filter:brightness(0) invert(1)}
+  .fade{position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(180deg,transparent,#0F3D38)}
+  /* 下：パネル */
+  .panel{flex:1;padding:0 64px 60px;display:flex;flex-direction:column;justify-content:center;color:#fff}
+  .eyebrow{color:#F0B45A;font-weight:700;font-size:30px}
+  .h{margin-top:14px;font-weight:900;font-size:82px;line-height:1.16;letter-spacing:-.01em}
+  .row{margin-top:40px;display:flex;align-items:center;gap:30px}
+  .cta{background:#E89B3C;color:#0A2C28;font-weight:900;font-size:38px;padding:28px 56px;border-radius:999px}
+  .badges{display:flex;flex-direction:column;gap:8px;font-size:25px;font-weight:700;color:#CFE2DB}
   .badges span::before{content:"●";color:#F0B45A;margin-right:9px}
 </style></head>
 <body>
 <div class="banner">
-  <div class="bg"><img src="../assets/ogp.jpg" alt="" /></div>
-  <div class="scrim"></div>
-  <div class="wrap">
+  <div class="photo">
+    <img class="bgimg" src="../assets/ogp.jpg" alt="" />
+    <div class="topgrad"></div>
     <img class="logo" src="../assets/logo.png" alt="支払いリセット計画" />
-    <div>
-      <div class="h">家賃も、ローンも。<br>毎月の支払い、<br>見直しませんか？</div>
-      <div class="sub">住まいと家計の、無料診断。</div>
+    <div class="fade"></div>
+  </div>
+  <div class="panel">
+    <div class="eyebrow">家賃も、ローンも、まとめて。</div>
+    <div class="h">毎月の支払い、<br>見直しませんか？</div>
+    <div class="row">
       <div class="cta">無料で診断する</div>
       <div class="badges"><span>相談無料</span><span>オンライン対応</span><span>秘密厳守</span></div>
     </div>
