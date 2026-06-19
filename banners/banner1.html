@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#ccc}
+  .banner{width:1080px;height:1080px;position:relative;overflow:hidden;font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;color:#fff}
+  .bg{position:absolute;inset:0}
+  .bg img{width:100%;height:100%;object-fit:cover}
+  .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,61,56,.50) 0%,rgba(15,61,56,.10) 32%,rgba(10,44,40,.90) 100%)}
+  .wrap{position:absolute;inset:0;padding:64px;display:flex;flex-direction:column;justify-content:space-between}
+  .logo{height:58px;filter:brightness(0) invert(1)}
+  .h{font-weight:900;font-size:78px;line-height:1.2;letter-spacing:-.01em;text-shadow:0 2px 24px rgba(0,0,0,.3)}
+  .sub{margin-top:22px;font-size:31px;font-weight:500;color:#EAF3EF}
+  .cta{margin-top:38px;display:inline-block;background:#E89B3C;color:#0A2C28;font-weight:900;font-size:37px;padding:26px 54px;border-radius:999px}
+  .badges{margin-top:30px;display:flex;gap:30px;font-size:26px;font-weight:700;color:#EFF6F2}
+  .badges span::before{content:"●";color:#F0B45A;margin-right:9px}
+</style></head>
+<body>
+<div class="banner">
+  <div class="bg"><img src="../assets/ogp.jpg" alt="" /></div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <img class="logo" src="../assets/logo.png" alt="支払いリセット計画" />
+    <div>
+      <div class="h">家賃も、ローンも。<br>毎月の支払い、<br>見直しませんか？</div>
+      <div class="sub">住まいと家計の、無料診断。</div>
+      <div class="cta">無料で診断する</div>
+      <div class="badges"><span>相談無料</span><span>オンライン対応</span><span>秘密厳守</span></div>
+    </div>
+  </div>
+</div>
+</body></html>

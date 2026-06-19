@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#ccc}
+  .banner{width:1080px;height:1080px;position:relative;overflow:hidden;background:#FAF7F1;
+    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;color:#1B2722;padding:70px;display:flex;flex-direction:column}
+  .logo{height:54px}
+  .eyebrow{margin-top:36px;color:#D6862A;font-weight:700;font-size:28px;text-align:center}
+  .h{margin-top:10px;font-weight:900;font-size:60px;line-height:1.2;text-align:center}
+  .cards{margin-top:54px;display:flex;align-items:stretch;gap:22px}
+  .card{flex:1;border-radius:24px;padding:40px 30px;text-align:center}
+  .now{background:#fff;border:1px solid rgba(15,61,56,.12)}
+  .aft{background:#0F3D38;color:#fff;position:relative}
+  .label{font-size:27px;font-weight:700;color:#5C6B66}
+  .aft .label{color:#F0B45A}
+  .yen{margin-top:14px;font-weight:900;font-size:74px;letter-spacing:-.02em}
+  .yen small{font-size:34px}
+  .now .yen{color:#1B2722}
+  .aft .yen{color:#F0B45A}
+  .badge{margin-top:16px;display:inline-block;background:#E89B3C;color:#0A2C28;font-weight:900;font-size:30px;padding:12px 30px;border-radius:999px}
+  .arrow{display:flex;align-items:center;font-size:60px;color:#E89B3C;font-weight:900}
+  .foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between}
+  .cta{background:#E89B3C;color:#0A2C28;font-weight:900;font-size:34px;padding:24px 46px;border-radius:999px}
+  .note{font-size:21px;color:#7A857F;font-weight:500;max-width:560px}
+</style></head>
+<body>
+<div class="banner">
+  <img class="logo" src="../assets/logo.png" alt="支払いリセット計画" />
+  <div class="eyebrow">毎月の支払い、見直しイメージ</div>
+  <div class="h">家賃も借金も、<br>住宅ローンにまとめると。</div>
+  <div class="cards">
+    <div class="card now">
+      <div class="label">いまの支払い／月</div>
+      <div class="yen">153,000<small>円</small></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card aft">
+      <div class="label">見直し後／月</div>
+      <div class="yen">110,000<small>円</small></div>
+      <div class="badge">▲43,000円</div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="note">※個人の条件により金額は異なります。上記は一例です。</div>
+    <div class="cta">無料診断はこちら</div>
+  </div>
+</div>
+</body></html>
